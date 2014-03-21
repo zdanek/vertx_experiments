@@ -7,6 +7,7 @@ import org.vertx.java.core.Handler;
 import org.vertx.java.core.logging.*;
 import org.vertx.java.core.logging.Logger;
 import org.vertx.java.platform.Verticle;
+import pl.zdanek.EventBusAddresses;
 import twitter4j.*;
 
 import java.util.List;
@@ -23,7 +24,8 @@ public class TwitterVerticle extends Verticle {
 
         StatusListener listener = new StatusListener(){
             public void onStatus(Status status) {
-                System.out.println(status.getUser().getName() + " : " + status.getText());
+                String twitterMessage = status.getUser().getName() + " : " + status.getText();
+                vertx.eventBus().publish(EventBusAddresses.TWITTER_MESSAGE, twitterMessage);
             }
             public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {}
             public void onTrackLimitationNotice(int numberOfLimitedStatuses) {}
@@ -41,9 +43,8 @@ public class TwitterVerticle extends Verticle {
         TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
         twitterStream.addListener(listener);
         FilterQuery filter = new FilterQuery();
-        filter.track(new String[]{"#java8"});
+        filter.track(new String[]{"#friday"});
+        logger.info("Tracking " + filter);
         twitterStream.filter(filter);
-
-
     }
 }

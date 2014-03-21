@@ -8,8 +8,8 @@ public class StarterVerticle extends Verticle {
     public void start() {
         container.logger().info("VERTICLE STARTER");
 
-        container.deployVerticle("pl.zdanek.PingVerticle");
         container.deployVerticle("pl.zdanek.twitt.TwitterVerticle");
+        container.deployVerticle("pl.zdanek.publisher.LogPublisher");
 
 
         container.logger().info("All verticles submitted");

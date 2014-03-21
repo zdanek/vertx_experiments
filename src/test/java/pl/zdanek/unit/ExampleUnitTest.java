@@ -1,7 +1,7 @@
 package pl.zdanek.unit;
 
-import pl.zdanek.PingVerticle;
 import org.junit.Test;
+import pl.zdanek.twitt.TwitterVerticle;
 
 /*
  * Copyright 2013 Red Hat, Inc.
@@ -24,7 +24,7 @@ public class ExampleUnitTest {
 
   @Test
   public void testVerticle() {
-    PingVerticle vert = new PingVerticle();
+      TwitterVerticle vert = new TwitterVerticle();
 
     // do something with verticle
   }

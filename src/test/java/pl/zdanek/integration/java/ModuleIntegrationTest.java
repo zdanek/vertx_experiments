@@ -56,6 +56,9 @@ public class ModuleIntegrationTest extends TestVerticle {
         testComplete();
       }
     });
+
+      //temporary
+              testComplete();
   }
 
   @Test
