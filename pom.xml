@@ -57,7 +57,15 @@
       <id>sonatype-nexus-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </repository>
-
+      <repository>
+          <id>oss-snapshots-repo</id>
+          <name>Sonatype OSS Maven Repository</name>
+          <url>https://oss.sonatype.org/content/groups/public</url>
+          <snapshots>
+              <enabled>true</enabled>
+              <!--<updatePolicy>always</updatePolicy>-->
+          </snapshots>
+      </repository>
         <repository>
             <id>twitter4j.org</id>
             <name>twitter4j.org Repository</name>
@@ -124,6 +132,12 @@
           <groupId>org.twitter4j</groupId>
           <artifactId>twitter4j-stream</artifactId>
           <version>[4.0,)</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.pi4j</groupId>
+          <artifactId>pi4j-core</artifactId>
+          <version>1.0-SNAPSHOT</version>
       </dependency>
   </dependencies>
 
