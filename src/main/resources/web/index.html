@@ -1,0 +1,25 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://cdn.sockjs.org/sockjs-0.3.4.min.js"></script>
+<script src="vertxbus.js"></script>
+
+<script>
+
+    var eb = new vertx.EventBus('http://localhost:8080/eventbus');
+
+    eb.onopen = function() {
+
+        eb.registerHandler('twitter', function(message) {
+
+            console.log('received a message: ' + JSON.stringify(message));
+            alert('ok');
+
+        });
+
+//      eb.send('some-address', {name: 'tim', age: 587});
+
+
+    }
+
+</script>
+
+        Twitt Ready
